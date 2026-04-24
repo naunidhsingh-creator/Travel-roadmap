@@ -2,7 +2,7 @@
 
 A visual career roadmap for anyone who wants to build a life around travel — not as a tourist, but as a fixer, writer, and adventurer.
 
-🌍 **Live site:** [olive-johna-46.tiiny.site](https://olive-johna-46.tiiny.site)
+🌍 **Live site:** naunidhsingh-creator.github.io/Travel-roadmap](https://naunidhsingh-creator.github.io/Travel-roadmap/)
 
 ---
 
