@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naunidh's Travel Career Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --paper: #f5f0e8;
+    --accent: #c8572a;
+    --gold: #b8942a;
+    --teal: #1a6b5a;
+    --muted: #6b6456;
+    --line: rgba(14,14,14,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .page { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 60px 32px 100px; }
+
+  /* HEADER */
+  .header { text-align: center; margin-bottom: 72px; }
+  .header-eyebrow { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.05; color: var(--ink); }
+  .header h1 span { color: var(--accent); font-style: italic; }
+  .header-sub { margin-top: 16px; font-size: 15px; color: var(--muted); font-weight: 300; letter-spacing: 0.02em; }
+  .header-line { width: 60px; height: 2px; background: var(--accent); margin: 24px auto 0; }
+
+  /* SECTION LABELS */
+  .section-label {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--line); }
+
+  /* NORTH STAR */
+  .north-star {
+    background: var(--ink); color: var(--paper);
+    border-radius: 4px; padding: 28px 36px;
+    display: flex; align-items: center; gap: 24px;
+    margin-bottom: 48px;
+    position: relative; overflow: hidden;
+  }
+  .north-star::before {
+    content: '✦';
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+    font-size: 80px; opacity: 0.06; color: var(--paper);
+  }
+  .north-star-icon { font-size: 32px; flex-shrink: 0; }
+  .north-star-text h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .north-star-text p { font-size: 13px; opacity: 0.65; font-weight: 300; line-height: 1.6; }
+
+  /* CAREER CORE */
+  .career-pair {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
+    align-items: center; margin-bottom: 48px;
+  }
+  .career-box {
+    border: 1.5px solid var(--ink); border-radius: 4px;
+    padding: 24px 28px; position: relative;
+  }
+  .career-box.primary { background: var(--ink); color: var(--paper); }
+  .career-box.secondary { background: transparent; }
+  .career-box-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.5; margin-bottom: 8px; }
+  .career-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .career-box p { font-size: 13px; line-height: 1.6; opacity: 0.75; }
+  .career-connector {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 0 20px; gap: 6px;
+  }
+  .connector-line { width: 1px; height: 40px; background: var(--ink); }
+  .connector-plus {
+    width: 28px; height: 28px; border: 1.5px solid var(--ink);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 300; background: var(--paper);
+  }
+
+  /* FLOW GRID */
+  .flow-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+
+  .flow-node {
+    border: 0.5px solid var(--line); border-radius: 4px;
+    padding: 20px; background: white; position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .flow-node:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,14,14,0.08); }
+  .flow-node-num {
+    position: absolute; top: -10px; left: 16px;
+    background: var(--accent); color: white;
+    font-size: 10px; font-weight: 500; padding: 2px 8px;
+    border-radius: 2px; letter-spacing: 0.1em;
+  }
+  .flow-node h4 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; margin-top: 8px; }
+  .flow-node p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* SOFT SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 48px; }
+  .skill-pill {
+    border: 0.5px solid var(--line); border-radius: 2px;
+    padding: 14px 16px; background: white; text-align: center;
+  }
+  .skill-icon { font-size: 20px; margin-bottom: 6px; }
+  .skill-name { font-size: 12px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .skill-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+  /* TIMELINE */
+  .timeline { position: relative; margin-bottom: 48px; }
+  .timeline::before { content: ''; position: absolute; left: 80px; top: 0; bottom: 0; width: 1px; background: var(--line); }
+  .timeline-item { display: flex; gap: 0; margin-bottom: 24px; position: relative; }
+  .timeline-year {
+    width: 80px; flex-shrink: 0; padding-right: 24px;
+    font-size: 11px; font-weight: 500; color: var(--accent);
+    letter-spacing: 0.05em; padding-top: 3px; text-align: right;
+  }
+  .timeline-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+    margin-top: 5px; margin-right: 20px; margin-left: -4px; position: relative; z-index: 1;
+  }
+  .timeline-content h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .timeline-content p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* MENTORS */
+  .mentors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+  .mentor-card {
+    border: 0.5px solid var(--line); border-radius: 4px;
+    padding: 20px; background: white; position: relative; overflow: hidden;
+  }
+  .mentor-card.featured { border-color: var(--accent); border-width: 1.5px; }
+  .mentor-card.featured::before {
+    content: 'Primary mentor';
+    position: absolute; top: 0; right: 0;
+    background: var(--accent); color: white;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px;
+  }
+  .mentor-initial {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .mentor-card.featured .mentor-initial { background: var(--accent); color: white; }
+  .mentor-card:not(.featured) .mentor-initial { background: var(--ink); color: var(--paper); }
+  .mentor-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .mentor-role { font-size: 11px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 8px; text-transform: uppercase; }
+  .mentor-why { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* BOOKS */
+  .books-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 64px; }
+  .book-card {
+    display: flex; gap: 14px; align-items: flex-start;
+    border: 0.5px solid var(--line); border-radius: 4px;
+    padding: 16px; background: white;
+  }
+  .book-spine {
+    width: 10px; flex-shrink: 0; border-radius: 2px; align-self: stretch; min-height: 60px;
+  }
+  .book-title { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; margin-bottom: 3px; line-height: 1.3; }
+  .book-author { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+  .book-why { font-size: 11px; color: var(--ink); line-height: 1.5; opacity: 0.7; }
+  .book-order { font-size: 10px; color: var(--accent); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px; }
+
+  /* DESTINATION NOTE */
+  .destination-note {
+    border-left: 3px solid var(--teal); padding: 20px 24px;
+    background: white; border-radius: 0 4px 4px 0; margin-bottom: 48px;
+  }
+  .destination-note h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; color: var(--teal); }
+  .destination-note p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .region-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .region-tag { font-size: 11px; border: 0.5px solid var(--teal); color: var(--teal); padding: 4px 10px; border-radius: 2px; font-weight: 500; }
+
+  /* FOOTER MANTRA */
+  .mantra { text-align: center; padding: 48px 0 0; }
+  .mantra p { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 26px); font-style: italic; color: var(--ink); opacity: 0.5; line-height: 1.5; }
+
+  /* CONNECTOR ARROWS */
+  .arrow-down {
+    text-align: center; color: var(--muted); font-size: 20px;
+    margin: -8px 0 8px; opacity: 0.4;
+  }
+
+  @media (max-width: 640px) {
+    .career-pair { grid-template-columns: 1fr; }
+    .career-connector { flex-direction: row; padding: 16px 0; }
+    .connector-line { width: 40px; height: 1px; }
+    .flow-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .mentors-grid, .books-grid { grid-template-columns: 1fr; }
+    .timeline::before { left: 60px; }
+    .timeline-year { width: 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Career Roadmap — Naunidh</div>
+    <h1>The <span>Explorer's</span> Path</h1>
+    <p class="header-sub">Fixer · Travel Writer · Adventurer — built for freedom, fuelled by curiosity</p>
+    <div class="header-line"></div>
+  </div>
+
+  <!-- NORTH STAR -->
+  <div class="section-label">North star</div>
+  <div class="north-star">
+    <div class="north-star-icon">✦</div>
+    <div class="north-star-text">
+      <h2>Explore the world. Stay free. Live the adventure.</h2>
+      <p>Not a job that allows travel — a life where travel, writing, and deep cultural immersion are the work itself. Freedom and adventure are non-negotiable. Everything else is built around them.</p>
+    </div>
+  </div>
+
+  <!-- CAREER CORE -->
+  <div class="section-label">Career combination</div>
+  <div class="career-pair">
+    <div class="career-box primary">
+      <div class="career-box-label">Career one</div>
+      <h3>Fixer</h3>
+      <p>On-ground expert hired by journalists, filmmakers & executives. You navigate logistics, make local connections, and translate culture. Deep regional knowledge. No camera. High demand.</p>
+    </div>
+    <div class="career-connector">
+      <div class="connector-line"></div>
+      <div class="connector-plus">+</div>
+      <div class="connector-line"></div>
+    </div>
+    <div class="career-box secondary">
+      <div class="career-box-label">Career two</div>
+      <h3>Travel Writer</h3>
+      <p>Translate places and people into words. Observe, talk to locals, dig into culture, write. Published in magazines, books, or your own platform. Voice and insight over credentials.</p>
+    </div>
+  </div>
+
+  <!-- WHY THEY FIT -->
+  <div class="section-label">Why they reinforce each other</div>
+  <div class="flow-grid" style="margin-bottom: 48px;">
+    <div class="flow-node">
+      <div class="flow-node-num">01</div>
+      <h4>Fixing funds the freedom</h4>
+      <p>Immediate cash from fixing clients lets you keep moving. No desk. No fixed location. Income follows you.</p>
+    </div>
+    <div class="flow-node">
+      <div class="flow-node-num">02</div>
+      <h4>Writing builds reputation</h4>
+      <p>Published work becomes your portfolio. It attracts better fixing clients and opens doors no CV ever could.</p>
+    </div>
+    <div class="flow-node">
+      <div class="flow-node-num">03</div>
+      <h4>Access creates content</h4>
+      <p>As a fixer you're inside the story. You see what tourists and journalists never see. That's your writing material.</p>
+    </div>
+  </div>
+
+  <!-- SOFT SKILLS -->
+  <div class="section-label">Soft skills to build</div>
+  <div class="skills-grid">
+    <div class="skill-pill">
+      <div class="skill-icon">👁</div>
+      <div class="skill-name">Deep observation</div>
+      <div class="skill-desc">Notice small specific details — not grand scenery, but a vendor's hands, a smell, a silence</div>
+    </div>
+    <div class="skill-pill">
+      <div class="skill-icon">🗣</div>
+      <div class="skill-name">Human connection</div>
+      <div class="skill-desc">Talk to strangers everywhere. Build trust quickly across cultures and languages</div>
+    </div>
+    <div class="skill-pill">
+      <div class="skill-icon">🧭</div>
+      <div class="skill-name">Navigation & logistics</div>
+      <div class="skill-desc">Move through difficult terrain, plan routes, manage uncertainty without panic</div>
+    </div>
+    <div class="skill-pill">
+      <div class="skill-icon">✍️</div>
+      <div class="skill-name">Writing craft</div>
+      <div class="skill-desc">Translate experience into words others feel. Voice matters more than grammar</div>
+    </div>
+    <div class="skill-pill">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-name">Languages</div>
+      <div class="skill-desc">A fixer without the local language is half a fixer. Start one language now, go deep</div>
+    </div>
+    <div class="skill-pill">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">Network building</div>
+      <div class="skill-desc">Local contacts are your greatest asset. Collect relationships, not business cards</div>
+    </div>
+    <div class="skill-pill">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">Adaptability</div>
+      <div class="skill-desc">Plans always change in the field. Stay calm, find solutions fast, never freeze</div>
+    </div>
+    <div class="skill-pill">
+      <div class="skill-icon">📖</div>
+      <div class="skill-name">Cultural literacy</div>
+      <div class="skill-desc">Understand histories, religions, politics of places before you arrive. Context is everything</div>
+    </div>
+  </div>
+
+  <!-- REGIONS -->
+  <div class="section-label">Regions worth going deep in</div>
+  <div class="destination-note">
+    <h3>Pick one region. Go deep. Become the expert.</h3>
+    <p>The most powerful fixers and travel writers aren't generalists — they own a region. They know its people, politics, hidden corners, and real stories. Depth over breadth, at least at the start. The best fixer markets are places with high global interest but genuine complexity — where outsiders struggle to navigate alone.</p>
+    <div class="region-tags">
+      <span class="region-tag">Central Asia</span>
+      <span class="region-tag">West Africa</span>
+      <span class="region-tag">Southeast Asia</span>
+      <span class="region-tag">Latin America</span>
+      <span class="region-tag">Middle East</span>
+      <span class="region-tag">South Asia</span>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section-label">Year by year roadmap</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">Now<br>Gr. 9</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Plant the seeds</h4>
+        <p>Read voraciously — start with Vagabonding. Begin one language seriously. Travel within India with real curiosity. Start a private travel journal. Observe everything.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">Gr. 10–12</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Sharpen the instincts</h4>
+        <p>More ambitious travel — neighbouring countries, diverse regions. Continue language seriously. Write publicly in small ways — a blog, school publications. Follow Rolf Potts' podcast Deviate weekly.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">College</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Enter the industry</h4>
+        <p>Study international relations, journalism, or tourism. First trips to your target region. Assist an experienced fixer. Pitch and publish in real outlets. Build your first local contacts.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">Early 20s</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Go independent</h4>
+        <p>First solo fixing jobs. First serious published pieces. Deep immersion in chosen region. Begin writing your first book. Let the reputation build through quality, not volume.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">Mid 20s</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Own your niche</h4>
+        <p>Known in your region. Work comes to you. Book published or in progress. Freedom and adventure are no longer the goal — they are simply your life.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENTORS -->
+  <div class="section-label">Guiding lights — mentors</div>
+  <div class="mentors-grid">
+    <div class="mentor-card featured">
+      <div class="mentor-initial">RP</div>
+      <div class="mentor-name">Rolf Potts</div>
+      <div class="mentor-role">Travel Writer & Philosopher</div>
+      <div class="mentor-why">The closest living model to the life you want. Built freedom and adventure through writing, not fame. Accessible via podcast Deviate and rolfpotts.com. Start here.</div>
+    </div>
+    <div class="mentor-card">
+      <div class="mentor-initial">PT</div>
+      <div class="mentor-name">Paul Theroux</div>
+      <div class="mentor-role">Travel Writer & Author</div>
+      <div class="mentor-why">Brutal honesty. Never romanticises. Teaches you to see places as they are, not as you wish them to be. Read him to sharpen your writing craft.</div>
+    </div>
+    <div class="mentor-card">
+      <div class="mentor-initial">RY</div>
+      <div class="mentor-name">Robert Young Pelton</div>
+      <div class="mentor-role">Fixer & Conflict Journalist</div>
+      <div class="mentor-why">Decades in the world's most complex regions. If the fixer path calls you most, his work is the raw, unfiltered manual for that life.</div>
+    </div>
+  </div>
+
+  <!-- BOOKS -->
+  <div class="section-label">Books — your curriculum</div>
+  <div class="books-grid">
+    <div class="book-card">
+      <div class="book-spine" style="background: var(--accent);"></div>
+      <div>
+        <div class="book-title">Vagabonding</div>
+        <div class="book-author">Rolf Potts</div>
+        <div class="book-why">The manual for building a life around travel. Freedom as a foundation, not a reward. Read this first.</div>
+        <div class="book-order">Read first</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-spine" style="background: var(--ink);"></div>
+      <div>
+        <div class="book-title">The Great Railway Bazaar</div>
+        <div class="book-author">Paul Theroux</div>
+        <div class="book-why">Classic travel writing. Shows how to observe cultures honestly and translate journeys into narrative.</div>
+        <div class="book-order">Read second</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-spine" style="background: var(--teal);"></div>
+      <div>
+        <div class="book-title">Marco Polo Didn't Go There</div>
+        <div class="book-author">Rolf Potts</div>
+        <div class="book-why">Essay collection. See Potts' craft up close — how he thinks about places, people, and the act of travel itself.</div>
+        <div class="book-order">Read third</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-spine" style="background: var(--gold);"></div>
+      <div>
+        <div class="book-title">Maximum City</div>
+        <div class="book-author">Suketu Mehta</div>
+        <div class="book-why">Deep cultural immersion in Mumbai. Shows how travel writing and cultural inquiry can produce something genuinely important.</div>
+        <div class="book-order">Read fourth</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-spine" style="background: #7b3f6e;"></div>
+      <div>
+        <div class="book-title">The Journalist and the Murderer</div>
+        <div class="book-author">Janet Malcolm</div>
+        <div class="book-why">Teaches you how the best fixers and journalists actually think. Essential for understanding the craft behind the adventure.</div>
+        <div class="book-order">Read fifth</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-spine" style="background: var(--muted);"></div>
+      <div>
+        <div class="book-title">The World's Most Dangerous Places</div>
+        <div class="book-author">Robert Young Pelton</div>
+        <div class="book-why">Raw and practical. The fixer's field guide to operating in complex, difficult, and extraordinary regions of the world.</div>
+        <div class="book-order">Read when ready</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANTRA -->
+  <div class="mantra">
+    <div class="header-line"></div>
+    <br>
+    <p>"Explore deeply → develop a voice → write about it → use that writing to fund more exploration"</p>
+  </div>
+
+</div>
+</body>
+</html>
